@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrackEase-CreateBudget</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            height: 100vh;
+            min-height: 100vh;
+        }
+        .sidebar {
+            width: 260px;
+            background-color: #7A67BB;
+            color: #fff;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+        .sidebar h2 {
+            margin-top:1.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            text-align: center;
+            color: #FFD700;
+            font-weight: bold;
+            
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            margin: 1.5rem 0;
+        }
+        .sidebar ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2rem;
+            display: block;
+            padding: 0.8rem;
+            border-radius: 6px;
+            transition: background-color 0.3s ease, padding 0.3s ease;
+        }
+        .sidebar ul li a:hover {
+            background-color: #6B5DAA;
+            padding-left: 1.2rem;
+        }
+        .main-content {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+        .login-container {
+            background-color: white;
+            width: 100%;
+            max-width: 700px;
+            padding: 10px 20px; /* Reduced padding */
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+            margin-bottom: 30px;
+            max-height: 600px; /* Set max height */
+            overflow-y: auto; /* Allows scrolling if content overflows */
+        }
+        .login-title {
+            text-align: center;
+            color: #7A67BB;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        .form-row {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        .form-col {
+            flex: 1;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            color: #7A67BB;
+            font-weight: bold;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 8px 12px;
+            border: 2px solid #7A67BB;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            transition: border-color 0.3s ease;
+        }
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: #5C4D8E;
+        }
+        .categories-section {
+            border: 2px solid #7A67BB;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+            background-color: #f8f8ff;
+        }
+        .categories-title {
+            text-align: center;
+            color: #7A67BB;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        .budget-categories {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+        .category-input {
+            background-color: white;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        .category-input label {
+            display: block;
+            margin-bottom: 4px;
+            color: #7A67BB;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        .category-input input {
+            width: 100%;
+            padding: 8px 25px 8px 12px;
+            border: 1px solid #7A67BB;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        .category-input::after {
+            content: '%';
+            position: absolute;
+            right: 20px;
+            bottom: 18px;
+            color: #666;
+        }
+        .login-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #7A67BB;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+        .login-btn:hover {
+            background-color: #6B5DAA;
+        }
+    </style>
+</head>
+<body>
+    <aside class="sidebar">
+        <h2>TrackEase</h2>
+        <ul>
+            <li><a href="AddExpense.html">Add Expense</a></li>
+            <li><a href="ViewExpense.jsp">Manage Expense</a></li>
+            <li><a href="CreateBudget.html">Add Custom Budget</a></li>
+            <li><a href="ViewBudget.jsp">View Budgets</a></li>
+            <li><a href="ViewAnalytics.jsp">View Analytics</a></li>
+        </ul>
+    </aside>
+    <main class="main-content">
+        <div class="login-container">
+            <h2 class="login-title">Create Custom Budget</h2>
+            <form action="CreateBudget" method="post">
+                <div class="form-row">
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="name">Budget Name</label>
+                            <input type="text" id="name" name="budgetname" required placeholder="Enter Budget Name">
+                        </div>
+                    </div>
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="income">Monthly Income</label>
+                            <input type="number" id="income" name="income" required placeholder="Enter Monthly Income">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="startDate">Start Date</label>
+                            <input type="date" id="startDate" name="startDate" required>
+                        </div>
+                    </div>
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="endDate">End Date</label>
+                            <input type="date" id="endDate" name="endDate" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="categories-section">
+                    <h3 class="categories-title">Budget Categories</h3>
+                    <div class="budget-categories">
+                        <div class="category-input">
+                            <label for="food">Food</label>
+                            <input type="number" id="food" name="food_percentage" required placeholder="Percentage" min="0" max="100">
+                        </div>
+                        <div class="category-input">
+                            <label for="transportation">Transportation</label>
+                            <input type="number" id="transportation" name="transportation_percentage" required placeholder="Percentage" min="0" max="100">
+                        </div>
+                        <div class="category-input">
+                            <label for="shopping">Shopping</label>
+                            <input type="number" id="shopping" name="shopping_percentage" required placeholder="Percentage" min="0" max="100">
+                        </div>
+                        <div class="category-input">
+                            <label for="bills">Bills</label>
+                            <input type="number" id="bills" name="bills_percentage" required placeholder="Percentage" min="0" max="100">
+                        </div>
+                        <div class="category-input">
+                            <label for="entertainment">Entertainment</label>
+                            <input type="number" id="entertainment" name="entertainment_percentage" required placeholder="Percentage" min="0" max="100">
+                        </div>
+                        <div class="category-input">
+                            <label for="education">Education</label>
+                            <input type="number" id="education" name="education_percentage" required placeholder="Percentage" min="0" max="100">
+                        </div>
+                        <div class="category-input">
+                            <label for="other">Other</label>
+                            <input type="number" id="other" name="other_percentage" required placeholder="Percentage" min="0" max="100">
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="login-btn">Create Budget</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

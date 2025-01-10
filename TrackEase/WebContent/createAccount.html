@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        /* Previous styles remain same */
+         * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #E6E3F4 0%, #7A67BB 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-container {
+            background-color: white;
+            padding: 20px 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(122, 103, 187, 0.15);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #7A67BB;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .input-box {
+            margin-bottom: 20px;
+        }
+
+        .input-box label {
+            display: block;
+            font-size: 14px;
+            color: #7A67BB;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .input-box input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #7A67BB;
+            border-radius: 8px;
+            font-size: 16px;
+            color: #333;
+            transition: border-color 0.3s ease;
+        }
+        .input-box input:focus {
+            outline: none;
+            border-color: #5C4D8E;
+        }
+
+        .button-box {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #7A67BB;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #6B5DAA;
+        }
+
+        .forgot-password {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .forgot-password a {
+            color: #7A67BB;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+        .error {
+            color: red;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+        .toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 40px;
+            cursor: pointer;
+            color: #7A67BB;
+        }
+        .input-box {
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Register</h2>
+        <form action="Register" method="post" id="registrationForm">
+            <div class="input-box">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-box">
+                <label for="email">Email</label>
+                <input type="text" id="email" name="email" required>
+                <span class="error" id="emailError"></span>
+            </div>
+            <div class="input-box">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+                <span class="toggle-password" onclick="togglePassword()">👁️</span>
+            </div>
+            <div class="button-box">
+                <button type="submit" value="Register">Register</button>
+            </div>
+            <p class="forgot-password">Already have an Account?
+                <a href="login.html">Login</a>
+            </p>
+        </form>
+    </div>
+
+    <script>
+        const emailInput = document.getElementById('email');
+        const emailError = document.getElementById('emailError');
+        const passwordInput = document.getElementById('password');
+        const form = document.getElementById('registrationForm');
+
+        emailInput.addEventListener('input', validateEmail);
+        form.addEventListener('submit', function(e) {
+            if (!validateEmail()) {
+                e.preventDefault();
+            }
+        });
+
+        function validateEmail() {
+            const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!regex.test(emailInput.value)) {
+                emailError.textContent = 'Please enter a valid email';
+                return false;
+            }
+            emailError.textContent = '';
+            return true;
+        }
+
+        function togglePassword() {
+            passwordInput.type = passwordInput.type === 'password' ? 'text' : 'password';
+        }
+    </script>
+</body>
+</html>

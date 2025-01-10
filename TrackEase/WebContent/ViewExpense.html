@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrackEase Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            height: 100vh;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #7A67BB;
+            color: #fff;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+        }
+        .sidebar h2 {
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+        .sidebar ul {
+            list-style: none;
+        }
+        .sidebar ul li {
+            margin: 1rem 0;
+        }
+        .sidebar ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+            display: block;
+            padding: 0.5rem;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        .sidebar ul li a:hover {
+            background-color: #6B5DAA;
+        }
+        .main-content {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            background-color: #f4f4f9;
+            overflow: hidden;
+        }
+        .expense-container {
+            width: 100%;
+            max-width: 1000px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        .expense-table-title {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #7A67BB;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .expense-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .expense-table th {
+            background-color: #7A67BB;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .expense-table td {
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 1rem;
+        }
+        .expense-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .expense-table tr:last-child td {
+            border-bottom: none;
+        }
+        .expense-table tr:hover {
+            background-color: #f0f0f0;
+            transition: background-color 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <aside class="sidebar">
+        <h2>TrackEase</h2>
+        <ul>
+            <li><a href="AddExpense.html">Add Expense</a></li>
+            <li><a href="ViewExpense.jsp">Manage Expense</a></li>
+            <li><a href="CreateBudget.html">Add Custom Budget</a></li>
+            <li><a href="ViewBudget.jsp">View Budgets</a></li>
+            <li><a href="ViewAnalytics.jsp">View Analytics</a></li>
+        </ul>
+    </aside>
+    <main class="main-content">
+        <div class="expense-container">
+            <h2 class="expense-table-title">Expense Details</h2>
+            <table class="expense-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Category</th>
+                        <th>Amount</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2024-03-15</td>
+                        <td>Groceries</td>
+                        <td>$75.50</td>
+                        <td>Weekly grocery shopping</td>
+                    </tr>
+                    <tr>
+                        <td>2024-03-16</td>
+                        <td>Dining Out</td>
+                        <td>$45.20</td>
+                        <td>Dinner with friends</td>
+                    </tr>
+                    <tr>
+                        <td>2024-03-17</td>
+                        <td>Transportation</td>
+                        <td>$30.00</td>
+                        <td>Uber rides</td>
+                    </tr>
+                    <tr>
+                        <td>2024-03-18</td>
+                        <td>Utilities</td>
+                        <td>$120.75</td>
+                        <td>Monthly electricity bill</td>
+                    </tr>
+                    <tr>
+                        <td>2024-03-19</td>
+                        <td>Entertainment</td>
+                        <td>$55.30</td>
+                        <td>Movie tickets and snacks</td>
+                    </tr>
+                    <tr>
+                        <td>2024-03-20</td>
+                        <td>Shopping</td>
+                        <td>$210.45</td>
+                        <td>Clothing and accessories</td>
+                    </tr>
+                    <tr>
+                        <td>2024-03-21</td>
+                        <td>Health</td>
+                        <td>$85.60</td>
+                        <td>Pharmacy and supplements</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+</html>

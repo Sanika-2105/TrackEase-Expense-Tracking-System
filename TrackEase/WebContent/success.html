@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrackEase-Success</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            height: 100vh;
+            min-height: 100vh;
+        }
+        .sidebar {
+            width: 260px;
+            background-color: #7A67BB;
+            color: #fff;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+        .sidebar h2 {
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            text-align: center;
+            color: #FFD700;
+            font-weight: bold;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            margin: 1.5rem 0;
+        }
+        .sidebar ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2rem;
+            display: block;
+            padding: 0.8rem;
+            border-radius: 6px;
+            transition: background-color 0.3s ease, padding 0.3s ease;
+        }
+        .sidebar ul li a:hover {
+            background-color: #6B5DAA;
+            padding-left: 1.2rem;
+        }
+        .main-content {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            background-color: #f4f4f9;
+        }
+        .success-container {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+        }
+        .success-icon {
+            color: #7A67BB;
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+        .success-title {
+            color: #7A67BB;
+            font-size: 2rem;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        .success-message {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+        .back-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #7A67BB;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .back-button:hover {
+            background-color: #6B5DAA;
+        }
+    </style>
+</head>
+<body>
+    <aside class="sidebar">
+        <h2>TrackEase</h2>
+        <ul>
+            <li><a href="AddExpense.html">Add Expense</a></li>
+            <li><a href="ViewExpense.jsp">Manage Expense</a></li>
+            <li><a href="CreateBudget.html">Add Custom Budget</a></li>
+            <li><a href="ViewBudget.jsp">View Budgets</a></li>
+            <li><a href="ViewAnalytics.jsp">View Analytics</a></li>
+        </ul>
+    </aside>
+    <main class="main-content">
+        <div class="success-container">
+            <div class="success-icon">✓</div>
+            <h1 class="success-title">Success!</h1>
+            <p class="success-message">Your Expense has been added successfully.</p>
+            <a href="dashboard.html" class="back-button">Back to Dashboard</a>
+        </div>
+    </main>
+</body>
+</html>
